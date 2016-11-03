@@ -77,7 +77,7 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(maxbilletes < billetesvendidos){
+        if(  billetesvendidos <= maxbilletes ){
 
             if(conpremio == true ){
                 if(balance >= price) {
