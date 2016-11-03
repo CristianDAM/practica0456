@@ -3,7 +3,7 @@
  * flat-fare tickets.
  * The price of a ticket is specified via the constructor.
  * Instances will check to ensure that a user only enters
- * sensible amounts of money, and will only print a ticket
+ * sensible amounts of money, and will only prnt a ticket
  * if enough money has been input.
  * 
  * @author David J. Barnes and Michael Kölling
@@ -68,6 +68,7 @@ public class TicketMachine
     public void printTicket()
     {
         if(balance >= price) {
+           
             // Simulate the printing of a ticket.
             System.out.println("##################");
             System.out.println("# The BlueJ Line");
@@ -82,6 +83,7 @@ public class TicketMachine
             balance = balance - price;
         }
         else {
+             int amountLeftToPay = price - balance;
             System.out.println("You must insert at least: " +
                                (price - balance) + " more cents.");
                     
@@ -98,5 +100,13 @@ public class TicketMachine
         amountToRefund = balance;
         balance = 0;
         return amountToRefund;
+    }
+    public int emptyMachine()
+    {
+       int money;
+       money = total;
+       total = 0;
+       return money;
+          
     }
 }
