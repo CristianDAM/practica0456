@@ -17,17 +17,21 @@ public class TicketMachine
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    // Ticket
+    private boolean conpremio;
 
     /**
      * Create a machine that issues tickets of the given price.
      */
-    public TicketMachine(int cost)
+    public TicketMachine(int cost,  boolean premio)
     {
         price = cost;
         balance = 0;
         total = 0;
+        conpremio = premio;
     }
-
+   
+       
     /**
      * @Return The price of a ticket.
      */
@@ -67,7 +71,41 @@ public class TicketMachine
      */
     public void printTicket()
     {
-        if(balance >= price) {
+        if(conpremio == true ){
+            if(balance >= price) {
+           
+            // Simulate the printing of a ticket.
+            System.out.println("##################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket");
+            System.out.println("# " + price + " cents.");
+            System.out.println("##################");
+            System.out.println();
+            
+            System.out.println("##################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket");
+            System.out.println("# " + price + " cents.");
+            System.out.println("##################");
+            System.out.println();
+
+            // Update the total collected with the price.
+            total = total + price;
+            // Reduce the balance by the prince.
+            balance = balance - price;
+           }
+            else {
+             int amountLeftToPay = price - balance;
+            System.out.println("You must insert at least: " +
+                               (price - balance) + " more cents.");
+        
+        
+        
+        
+           }
+        }   
+        else{
+            if(balance >= price) {
            
             // Simulate the printing of a ticket.
             System.out.println("##################");
@@ -81,13 +119,19 @@ public class TicketMachine
             total = total + price;
             // Reduce the balance by the prince.
             balance = balance - price;
-        }
-        else {
+           }
+            else {
              int amountLeftToPay = price - balance;
             System.out.println("You must insert at least: " +
                                (price - balance) + " more cents.");
                     
+            }
+        
+        
+        
+        
         }
+     
     }
 
     /**
@@ -103,10 +147,28 @@ public class TicketMachine
     }
     public int emptyMachine()
     {
-       int money;
-       money = total;
-       total = 0;
-       return money;
-          
-    }
-}
+        if (balance > 0) {
+           
+            return -1;
+        
+        
+        
+        }
+        else {
+             int money;
+             money = total;
+             total = 0;
+             return money;
+        
+        }
+       
+    }    
+        
+        
+        
+}        
+        
+        
+        
+    
+
